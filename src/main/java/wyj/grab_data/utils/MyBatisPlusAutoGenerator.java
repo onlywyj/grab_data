@@ -57,7 +57,7 @@ public class MyBatisPlusAutoGenerator {
 
             // 数据源配置
             DataSourceConfig dsc = new DataSourceConfig();
-            dsc.setUrl("jdbc:mysql://localhost:8080/wyj?useUnicode=true&useSSL=false&characterEncoding=utf8");
+            dsc.setUrl("jdbc:mysql://192.168.1.200/wyj?useUnicode=true&useSSL=false&characterEncoding=utf8");
             // dsc.setSchemaName("public");
             dsc.setDriverName("com.mysql.cj.jdbc.Driver");
             dsc.setUsername("wyj");
