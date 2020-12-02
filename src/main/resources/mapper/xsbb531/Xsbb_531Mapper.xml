@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisplus.xsbb531.mapper.Xsbb_531Mapper">
+
+    <select id="selectAllsccj" resultType="java.lang.String">
+        SELECT DISTINCT xs.`生产厂家` FROM xsbb_531 xs WHERE xs.`生产厂家` IS NOT NULL;
+    </select>
+
+    <select id="querySfslAndJshj" resultType="map">
+        SELECT SUM(`实发主数量`),SUM(`价税合计`) FROM xsbb_531
+	    WHERE `销售组织` = #{xszz};
+    </select>
+
+    <select id="counts" resultType="java.lang.Integer">
+        SELECT count(1) FROM xsbb_531
+	    WHERE `销售组织` = #{xszz};
+    </select>
+
+</mapper>

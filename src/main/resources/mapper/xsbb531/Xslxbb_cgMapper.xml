@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisplus.xsbb531.mapper.Xslxbb_cgMapper">
+
+    <select id="counts" resultType="java.lang.Integer">
+        SELECT count(1) FROM xslxbb_cg
+        WHERE
+        (   `销售公司` = #{xsgs}
+        AND `订单客户` NOT IN
+        <foreach item="ddkh" index="index" collection="ddkh" open="(" separator="," close=")">
+            #{ddkh}
+        </foreach>
+        AND `通用名称` IN
+        <foreach item="tymc" index="index" collection="tymc" open="(" separator="," close=")">
+            #{tymc}
+        </foreach>
+        AND `生产厂家` IN
+        <foreach item="sccj" index="index" collection="sccj" open="(" separator="," close=")">
+            #{sccj}
+        </foreach>
+        )
+    </select>
+
+    <select id="queryBykhOrwlOrsccj" resultType="com.mybatisplus.xsbb531.entity.Xslxbb_cg">
+        SELECT `数量`,`折扣后含税金额` FROM xslxbb_cg
+        WHERE
+        (   `销售公司` = #{xsgs}
+        AND `订单客户` NOT IN
+        <foreach item="ddkh" index="index" collection="ddkh" open="(" separator="," close=")">
+            #{ddkh}
+        </foreach>
+        AND `通用名称` IN
+        <foreach item="tymc" index="index" collection="tymc" open="(" separator="," close=")">
+            #{tymc}
+        </foreach>
+        AND `生产厂家` IN
+        <foreach item="sccj" index="index" collection="sccj" open="(" separator="," close=")">
+            #{sccj}
+        </foreach>
+        )
+    </select>
+
+    <select id="querySlAndZkhsje" resultType="map">
+        SELECT SUM(`数量`),SUM(`折扣后含税金额`) FROM xslxbb_cg
+        WHERE
+        (   `销售公司` = #{xsgs}
+        AND `订单客户` NOT IN
+        <foreach item="ddkh" index="index" collection="ddkh" open="(" separator="," close=")">
+            #{ddkh}
+        </foreach>
+        AND `通用名称` IN
+        <foreach item="tymc" index="index" collection="tymc" open="(" separator="," close=")">
+            #{tymc}
+        </foreach>
+        AND `生产厂家` IN
+        <foreach item="sccj" index="index" collection="sccj" open="(" separator="," close=")">
+            #{sccj}
+        </foreach>
+        )
+    </select>
+
+</mapper>
