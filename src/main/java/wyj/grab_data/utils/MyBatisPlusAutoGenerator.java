@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class MyBatisPlusAutoGenerator {
 
     // 演示例子，执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
@@ -50,18 +51,24 @@ public class MyBatisPlusAutoGenerator {
             GlobalConfig gc = new GlobalConfig();
             String projectPath = System.getProperty("user.dir");
             gc.setOutputDir(projectPath + "/src/main/java");
-            gc.setAuthor("jobob");
+            gc.setAuthor("WYJ");
             gc.setOpen(false);
             // gc.setSwagger2(true); 实体属性 Swagger2 注解
             mpg.setGlobalConfig(gc);
 
             // 数据源配置
             DataSourceConfig dsc = new DataSourceConfig();
-            dsc.setUrl("jdbc:mysql://192.168.1.200/wyj?useUnicode=true&useSSL=false&characterEncoding=utf8");
+//            dsc.setUrl("jdbc:mysql://192.168.1.200/wyj?useUnicode=true&useSSL=false&characterEncoding=utf8");
+//            // dsc.setSchemaName("public");
+//            dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+//            dsc.setUsername("wyj");
+//            dsc.setPassword("wyj");
+            dsc.setUrl("jdbc:mysql://localhost:3306/yifan?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
             // dsc.setSchemaName("public");
             dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-            dsc.setUsername("wyj");
-            dsc.setPassword("wyj");
+            dsc.setUsername("root");
+            dsc.setPassword("12344321");
+
             mpg.setDataSource(dsc);
 
             // 包配置

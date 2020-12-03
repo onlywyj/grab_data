@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisplus.xsbb531.mapper.Hcdb_resultMapper">
+
+    <select id="selectAll" resultType="com.mybatisplus.xsbb531.entity.Hcdb_result">
+        SELECT `销售组织531`,`数量531`,`金额531`, `数量销售流向`,`金额销售流向`,`数量差值`,`金额差值` FROM hcdbresult
+    </select>
+
+    <insert id="addResult" parameterType="com.mybatisplus.xsbb531.entity.Hcdb_result">
+        INSERT INTO hcdb_result
+        <set>
+            <if test="销售组织531 != null">`销售组织531`=#{销售组织531},</if>
+            <if test="数量531 != null">`数量531`=#{数量531},</if>
+            <if test="金额531 != null">`金额531`=#{金额531},</if>
+            <if test="销售组织销售流向 != null">`销售组织销售流向`=#{销售组织销售流向},</if>
+            <if test="数量销售流向 != null">`数量销售流向`=#{数量销售流向},</if>
+            <if test="金额销售流向 != null">`金额销售流向`=#{金额销售流向},</if>
+            <if test="销售组织差值 != null">`销售组织差值`=#{销售组织差值},</if>
+            <if test="数量差值 != null">`数量差值`=#{数量差值},</if>
+            <if test="金额差值 != null">`金额差值`=#{金额差值},</if>
+        </set>
+    </insert>
+
+    <update id="updateResult" parameterType="com.mybatisplus.xsbb531.entity.Hcdb_result">
+        UPDATE hcdb_result
+        <set>
+            <if test="销售组织531 != null">`销售组织531`=#{销售组织531},</if>
+            <if test="数量531 != null">`数量531`=#{数量531},</if>
+            <if test="金额531 != null">`金额531`=#{金额531},</if>
+            <if test="销售组织销售流向 != null">`销售组织销售流向`=#{销售组织销售流向},</if>
+            <if test="数量销售流向 != null">`数量销售流向`=#{数量销售流向},</if>
+            <if test="金额销售流向 != null">`金额销售流向`=#{金额销售流向},</if>
+            <if test="销售组织差值 != null">`销售组织差值`=#{销售组织差值},</if>
+            <if test="数量差值 != null">`数量差值`=#{数量差值},</if>
+            <if test="金额差值 != null">`金额差值`=#{金额差值},</if>
+        </set>
+        WHERE `自增主键` = #{自增主键}
+    </update>
+
+</mapper>
