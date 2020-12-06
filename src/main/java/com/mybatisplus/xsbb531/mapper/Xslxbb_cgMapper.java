@@ -32,4 +32,5 @@ public interface Xslxbb_cgMapper extends BaseMapper<Xslxbb_cg> {
      */
 
     int counts(@Param("xsgs") String xsgs, @Param("ddkh") List<String> ddkh, @Param("tymc") List<String> tymc, @Param("sccj") List<String> sccj);
+
 }

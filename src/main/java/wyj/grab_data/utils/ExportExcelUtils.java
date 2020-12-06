@@ -1,12 +1,4 @@
 package wyj.grab_data.utils;
-/*
- * @author WYJ
- * @data 2020/12/2 12:27
- * 概述：
- *       XXXXXX
- *
- */
-
 
 import com.mybatisplus.excel.ExcelData;
 import org.apache.poi.ss.usermodel.*;

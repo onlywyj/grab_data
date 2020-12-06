@@ -63,11 +63,18 @@ public class MyBatisPlusAutoGenerator {
 //            dsc.setDriverName("com.mysql.cj.jdbc.Driver");
 //            dsc.setUsername("wyj");
 //            dsc.setPassword("wyj");
-            dsc.setUrl("jdbc:mysql://localhost:3306/yifan?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
-            // dsc.setSchemaName("public");
-            dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-            dsc.setUsername("root");
-            dsc.setPassword("12344321");
+            //MySQL
+//            dsc.setUrl("jdbc:mysql://localhost:3306/yifan?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
+//            // dsc.setSchemaName("public");
+//            dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+//            dsc.setUsername("root");
+//            dsc.setPassword("12344321");
+            //Oracle
+
+            dsc.setUrl("jdbc:oracle:thin:@10.100.10.101:1521:orcl");
+            dsc.setDriverName("oracle.jdbc.OracleDriver");
+            dsc.setUsername("NCYY");
+            dsc.setPassword("NCYY");
 
             mpg.setDataSource(dsc);
 

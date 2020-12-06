@@ -31,4 +31,5 @@ public interface Hcdb_resultMapper extends BaseMapper<Hcdb_result> {
      */
 
     ArrayList<Hcdb_result> selectAll();
+
 }

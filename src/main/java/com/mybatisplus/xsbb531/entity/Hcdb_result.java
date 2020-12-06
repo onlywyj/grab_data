@@ -37,6 +37,10 @@ public class Hcdb_result implements Serializable {
 
     private String 金额差值;
 
+    private Integer 条数531;
+
+    private Integer 条数销售流向;
+
     public Integer get自增主键() {
         return 自增主键;
     }
@@ -108,19 +112,29 @@ public class Hcdb_result implements Serializable {
         this.金额差值 = 金额差值;
     }
 
+    public Integer get条数531() { return 条数531; }
+
+    public void set条数531(Integer 条数531) { this.条数531 = 条数531; }
+
+    public Integer get条数销售流向() { return 条数销售流向; }
+
+    public void set条数销售流向(Integer 条数销售流向) { this.条数销售流向 = 条数销售流向; }
+
     @Override
     public String toString() {
         return "Hcdb_result{" +
-            "自增主键=" + 自增主键 +
-            ", 销售组织531=" + 销售组织531 +
-            ", 数量531=" + 数量531 +
-            ", 金额531=" + 金额531 +
-            ", 销售组织销售流向=" + 销售组织销售流向 +
-            ", 数量销售流向=" + 数量销售流向 +
-            ", 金额销售流向=" + 金额销售流向 +
-            ", 销售组织差值=" + 销售组织差值 +
-            ", 数量差值=" + 数量差值 +
-            ", 金额差值=" + 金额差值 +
-        "}";
+                "自增主键=" + 自增主键 +
+                ", 销售组织531='" + 销售组织531 + '\'' +
+                ", 数量531='" + 数量531 + '\'' +
+                ", 金额531='" + 金额531 + '\'' +
+                ", 销售组织销售流向='" + 销售组织销售流向 + '\'' +
+                ", 数量销售流向='" + 数量销售流向 + '\'' +
+                ", 金额销售流向='" + 金额销售流向 + '\'' +
+                ", 销售组织差值='" + 销售组织差值 + '\'' +
+                ", 数量差值='" + 数量差值 + '\'' +
+                ", 金额差值='" + 金额差值 + '\'' +
+                ", 条数531=" + 条数531 +
+                ", 条数销售流向=" + 条数销售流向 +
+                '}';
     }
 }

@@ -10,10 +10,8 @@ package wyj.grab_data.yf_531;
 import com.mybatisplus.excel.ExcelData;
 import com.mybatisplus.xsbb531.entity.Hcdb_result;
 import com.mybatisplus.xsbb531.entity.Xslxbb_cg;
-import com.mybatisplus.xsbb531.mapper.Hcdb_resultMapper;
-import com.mybatisplus.xsbb531.mapper.Wl_531Mapper;
-import com.mybatisplus.xsbb531.mapper.Xsbb_531Mapper;
-import com.mybatisplus.xsbb531.mapper.Xslxbb_cgMapper;
+import com.mybatisplus.xsbb531.mapper.*;
+import com.mybatisplus.xsbb531.service.IYF_531Service;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +33,18 @@ import java.util.Map;
 public class DataOperate531 {
 
     @Autowired
-    Xsbb_531Mapper xsbb_531Mapper;
+    private Xsbb_531Mapper xsbb_531Mapper;
     @Autowired
-    Xslxbb_cgMapper xslxbb_cgMapper;
+    private Xslxbb_cgMapper xslxbb_cgMapper;
     @Autowired
-    Wl_531Mapper wl_531Mapper;
+    private Wl_531Mapper wl_531Mapper;
     @Autowired
-    Hcdb_resultMapper hcdb_resultMapper;
+    private Hcdb_resultMapper hcdb_resultMapper;
+    @Autowired
+    private IYF_531Service iyf531Service;
+    @Autowired
+    private YF_531Mapper yf531Mapper;
+
 
 //    @Test
 //    public void initialize(){
@@ -85,7 +88,11 @@ public class DataOperate531 {
         khList.add("辽宁亿帆药业有限公司");
 
         //物料
-        List<String> allwlname = wl_531Mapper.selectAllwlname();
+        //Oracle数据 YF_531
+        List<String> allwlname = yf531Mapper.findAll();
+
+        //MySql数据
+        //List<String> allwlname = wl_531Mapper.selectAllwlname();
 
         //生产厂家
         List<String> sccjList = xsbb_531Mapper.selectAllsccj();
@@ -115,7 +122,12 @@ public class DataOperate531 {
                 hcdb_result.set金额销售流向("0.00");
                 hcdb_result.set数量差值("0.00");
                 hcdb_result.set金额差值("0.00");
+                hcdb_result.set条数531(0);
+                hcdb_result.set条数销售流向(0);
             } else {
+                hcdb_result.set条数531(counts);
+                hcdb_result.set条数销售流向(count);
+
                 BigDecimal bd1 = new BigDecimal((Double) xsbb_531s.get(0).get("SUM(`实发主数量`)")).setScale(2, BigDecimal.ROUND_HALF_UP);
                 BigDecimal bd2 = new BigDecimal((Double) xslxbb_cgss.get(0).get("SUM(`数量`)")).setScale(2, BigDecimal.ROUND_HALF_UP);
                 BigDecimal sl_cz = BigDecimal.valueOf(bd1.subtract(bd2).doubleValue()).setScale(2, BigDecimal.ROUND_HALF_UP);
@@ -165,6 +177,13 @@ public class DataOperate531 {
             }
         }
         System.out.println("********************************************************************************************");
+
+        //导出为EXCEL表
+        try {
+            exportExcel();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         /*
         List<Xslxbb_cg> xslxbb_cgs_0 = xslxbb_cgMapper.queryBykhOrwlOrsccj(khList.get(0),khList,allwlname,sccjList);
@@ -277,5 +296,13 @@ public class DataOperate531 {
         ExportExcelUtils.generateExcel(data,path);
     }
 
+
+    @Test
+    public void synchronization(){
+
+        List<String> list = yf531Mapper.findAll();
+
+
+    }
 
 }

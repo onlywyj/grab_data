@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisplus.xsbb531.mapper.YF_531Mapper">
+
+    <select id="findAll" resultType="java.lang.String">
+        SELECT DISTINCT t.name FROM yf_531 t WHERE t.name IS NOT NULL
+    </select>
+
+</mapper>
